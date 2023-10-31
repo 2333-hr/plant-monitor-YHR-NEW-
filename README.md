@@ -70,10 +70,15 @@ Install serial port data receiving software on your computer, such as CoolTerm (
 5. How can others view my plant monitor data or how others can access the information being generated from your plant ?(how do we know it is your plant?)
 Under the same LAN, the others can view it through MQTT according to the path student/CASA0014/plant/ucxxx. Each person's name is unique. You can view temperature/humidity/moisture.
 <img width="416" alt="image" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/fb6d43c2-2f9c-437d-98ae-72ceaefd4cba">
+
 Or others can log in to my telegraf/Grafana to view it, provided that it is under the same LAN and I enter my username and password to log in and view it.
 
+
 6. Problems encountered in the workshop
-①Problems encountered during welding
-The board was not used when welding the circuit board, which caused the circuit board to be a little skewed. The teacher helped to straighten the connection by soldering and melting it again, and the circuit board and Feather HUZZAH ESP8266 were connected.
+①Problems encountered during soldering
+The board was not used when soldering the circuit board, which caused the circuit board to be skewed. The teacher helped to straighten the connection by soldering and melting it again, and the circuit board and Feather HUZZAH ESP8266 were connected.
+![029ab8b0799274a54308135cb0b97a3](https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/bdb1e5a1-69f4-4a81-93c5-6163e797801a)
+
 ②Problems encountered when connecting to Raspberry Pi
 The Raspberry Pi could not connect to wifi on my own computer and the connection was refused. With the help of the teacher, I used the local ssh on the laboratory computer to connect to the wifi network.
+
