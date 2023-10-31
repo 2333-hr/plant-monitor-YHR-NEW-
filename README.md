@@ -53,6 +53,11 @@ Based on the basic functions of the workshop, I plan to make a plant monito that
 ①About the implementation principle of LED light response: (already completed)
 Write a piece of Arduino code (file "LEDcode") and add it to the original workshop code to connect the positive (long pin) of the LED to digital pin 13 of the Feather HUZZAH ESP8266. Before connecting, make sure the power is off. The negative (short pin) of the LED is usually connected to the ground (GND) pin, make sure to connect the negative of the LED to the GND pin of the Feather HUZZAH ESP8266 for functionality.
 
+![3826ee606bdcd9b2846bfa2a852880a](https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/bf042a1a-15a7-47f1-8a6d-b74732117657)
+
+![a1ce92f9261f45df78356a3e0f63511](https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/7df9203d-0ad5-47fd-b57b-fdbc34100d24)
+
+
 ② Regarding the implementation principle of sound response: (to do list)
 Plan 1: 
 Connect soil moisture sensor and buzzer to Arduino. Make sure to connect the sensor's data pin to one of the Arduino's analog input pins and the buzzer or speaker to one of the digital output pins. The sensor and buzzer need to be grounded. Use Arduino IDE to write a program to read the value of the soil moisture sensor. When the value is lower than a certain value, trigger the buzzer or speaker to make a sound. When the soil moisture is lower than thresholdValue, the buzzer will be triggered and sound. (plan1)
@@ -83,4 +88,7 @@ The board was not used when soldering the circuit board, which caused the circui
 ②Problems encountered when connecting to Raspberry Pi
 
 The Raspberry Pi could not connect to wifi on my own computer and the connection was refused. With the help of the teacher, I used the local ssh on the laboratory computer to connect to the wifi network.
+
+③Encountered problems when visualizing data
+The data could not be obtained through MQTT in Telegraf, and it was later discovered that the API TOKEN was entered incorrectly. The Raspberry Pi configuration principle is to input a Raspberry Pi data to obtain TOKEN and an MQTT data to obtain TOKEN, but I only entered the Raspberry Pi data to obtain TOKEN. At the same time, many students had the same problem. In the final analysis, it is about the code structure. Caused by unfamiliarity with the function.
 
