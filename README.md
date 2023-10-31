@@ -76,9 +76,11 @@ Or others can log in to my telegraf/Grafana to view it, provided that it is unde
 
 6. Problems encountered in the workshop
 ①Problems encountered during soldering
+
 The board was not used when soldering the circuit board, which caused the circuit board to be skewed. The teacher helped to straighten the connection by soldering and melting it again, and the circuit board and Feather HUZZAH ESP8266 were connected.
 ![029ab8b0799274a54308135cb0b97a3](https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/bdb1e5a1-69f4-4a81-93c5-6163e797801a)
 
 ②Problems encountered when connecting to Raspberry Pi
+
 The Raspberry Pi could not connect to wifi on my own computer and the connection was refused. With the help of the teacher, I used the local ssh on the laboratory computer to connect to the wifi network.
 
