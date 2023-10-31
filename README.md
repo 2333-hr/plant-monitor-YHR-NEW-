@@ -10,6 +10,7 @@ Here are some pictures of the proof:
 Now let's get started with a note about my library! Hope to help others have a better understand of the content of the files in my Github repository and its related features!
 
 1. Explanation of file contents about the library
+   
 ① First, the code of some steps of the plant monitor (I've selected steps that I think are somewhat difficult) were analyzed in detail, and the file was named "step: xxxanalyse". (Two are currently analyzed, and if there is a need for improvement, I will continue to analyze and upload the files).
 
 ② Regarding the final code of the workshop "plant monitor" step 1-9 function, "STEP9" is the integration code provided by the teacher in the ninth step. I have changed or added some comments. "mixed1-8" is my own mixed steps. The merged codes in 1-8 have similar functions. They are both used for the development of the ESP8266 board, connecting to the WiFi network, reading the temperature and humidity data of the DHT22 sensor, transmitting the data through MQTT and setting up a Web server. But there are also subtle differences. Later, I may need to select and integrate them into a final version of the optimal document.
@@ -23,8 +24,8 @@ The specific differences are as follows:
 
 4. "mixed1-8" uses the startWifi(), startWebserver() and syncDate() functions to initialize the WiFi connection, Web server and time synchronization. "STEP9" places these initialization operations directly in the setup() function without using a separate initialization function.
 
-The HTML generation function SendHTML of "5.mixed1-8" contains more HTML code and displays the sampling time. The HTML in "STEP9" is relatively simple.
+5.The HTML generation function SendHTML of "5.mixed1-8" contains more HTML code and displays the sampling time. The HTML in "STEP9" is relatively simple.
 
-③About the new function code (part of the code form). Name the code file that causes the LED to turn on and off based on the soil moisture value with LEDcode; name the code file with buzzercode for whether or not it emits a beep based on the soil moisture value.
+③About the new function code (part of the code form). Use "LEDcode" to name The code file for the LED to turn on and off based on the soil moisture value; use "buzzercodePLAN1/2" to name the code file for whether to emit a beep based on the soil moisture value.
 
-④ Regarding the final plant monitor code (complete code form) that adds personal ideas, it is currently a file named plant monitor-justaddLEDcod. This file only adds the LED flash alarm code based on the workshop "plant monitor". This is because the buzzer is currently used up, and the buzzer will be connected later, and the code to make the buzzer run will also be added to the final code according to the plan - let's look forward to it!
+④ About the final plant monitor code (completed code form) that adds personal ideas: it is currently a file named "plant monitor-justaddLEDcod". This file only adds the LED flash alarm code based on the workshop "plant monitor". That's because the buzzer is currently used up, and the buzzer will be connected later. The code to make the buzzer run will also be added to the final code according to the plan --------let's look forward to it!
