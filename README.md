@@ -1,5 +1,6 @@
 # plant-monitor-YHR-NEW-
 connected environment
+
 Some important notes in advance:
 I've created a library before, but because it's all uploaded in the form of folders, I feel that the presentation form is not intuitive and I want to rebuild some architecture, so I simply build a new library. 
 Here are some pictures of the proof:
@@ -92,3 +93,7 @@ The Raspberry Pi could not connect to wifi on my own computer and the connection
 ③Encountered problems when visualizing data
 The data could not be obtained through MQTT in Telegraf, and it was later discovered that the API TOKEN was entered incorrectly. The Raspberry Pi configuration principle is to input a Raspberry Pi data to obtain TOKEN and an MQTT data to obtain TOKEN, but I only entered the Raspberry Pi data to obtain TOKEN. At the same time, many students had the same problem. In the final analysis, it is about the code structure. Caused by unfamiliarity with the function.
 
+
+7. Reflection
+In the process of doing workshops, you often encounter many problems when piecing together the code step by step. Most of the problems are caused by a lack of understanding of the code structure and functions as well as writing rules. Therefore, I think we should consolidate the foundation, in addition to what is taught in class. In addition to learning knowledge, you must also clearly understand the relevant basic rules, otherwise it will easily cause the problem of not knowing the specific meaning of the code. So for some steps, I conducted a line-by-line analysis, and also wanted to learn more about some basic code running rules through example analysis.
+What impressed me most was that during the welding process, I had a big problem. First of all, it was because I did not fully follow the workshop instructions and did not use board fixation when welding the circuit board, which resulted in a serious distortion of the gate welding. The circuit board and the Feather HUZZAH ESP8266 board could not be spliced. My first thought at the time was to change the board and re-solder it. I was quite anxious. However, when I asked the professor, he said that it could be changed by soldering without re-soldering. I was relieved. Although I encountered many problems in the plant monitor workshop, these problems also taught me a lot. In addition to the code, I also need to be calm when encountering problems and actively look for solutions instead of panicking and being overwhelmed.
