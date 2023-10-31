@@ -9,7 +9,7 @@
 #define SECRET_PASS "ssid password"
 #define SECRET_MQTTUSER "user name - eg student"
 #define SECRET_MQTTPASS "password";
- */
+ 
 
 //Define Wi-Fi and MQTT-related variables
 const char* ssid     = SECRET_SSID;   
