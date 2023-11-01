@@ -132,7 +132,7 @@ void sendMQTT() {
   snprintf (msg, 50, "hello world #%ld", value);
   Serial.print("Publish message: ");
   Serial.println(msg);
-  client.publish("student/CASA0014/plant/ucjtdjw", msg);
+  client.publish("student/CASA0014/plant/ucfnhy0", msg);
 }
 
 void reconnect() {
@@ -147,7 +147,7 @@ void reconnect() {
     if (client.connect(clientId.c_str(), mqttuser, mqttpass)) {
       Serial.println("connected");
       // ... and subscribe to messages on broker
-      client.subscribe("student/CASA0014/plant/ucjtdjw/inTopic");
+      client.subscribe("student/CASA0014/plant/ucfnhy0/inTopic");
     } else {
       Serial.print("failed, rc=");
       Serial.print(client.state());
