@@ -83,6 +83,7 @@ Or others can log in to my telegraf/Grafana to view it, provided that it is unde
 
 
 6. Problems encountered in the workshop
+   
 ①Problems encountered during soldering
 
 The board was not used when soldering the circuit board, which caused the circuit board to be skewed. The teacher helped to straighten the connection by soldering and melting it again, and the circuit board and Feather HUZZAH ESP8266 were connected.
