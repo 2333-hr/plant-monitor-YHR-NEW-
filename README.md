@@ -15,7 +15,12 @@ Now let's get started with a note about my library! Hope to help others have a b
    
 ① First, the code of some steps of the plant monitor (I've selected steps that I think are somewhat difficult) were analyzed in detail, and the file was named "step: xxxanalyse". (Two are currently analyzed, and if there is a need for improvement, I will continue to analyze and upload the files).
 
+<img width="682" alt="54e856244d962442a25faa016c3e5a5" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/1aa96391-a9f9-4619-8ec7-0200ba39cd80">
+
 ② Regarding the final code of the workshop "plant monitor" step 1-9 function, "STEP9" is the integration code provided by the teacher in the ninth step. I have changed or added some comments. "mixed1-8" is my own mixed steps. The merged codes in 1-8 have similar functions. They are both used for the development of the ESP8266 board, connecting to the WiFi network, reading the temperature and humidity data of the DHT22 sensor, transmitting the data through MQTT and setting up a Web server. But there are also subtle differences. Later, I may need to select and integrate them into a final version of the optimal document.
+
+<img width="673" alt="bfa2ae60fca5c7c323beac01ca8b7ea" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/c6f19db6-6337-4c92-bf6a-72d01f493eb2">
+<img width="677" alt="b806590e16e2a488fba7b0359cda46f" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/c53a9acb-91ae-4903-b137-4612a2cec3f3">
 
 The specific differences are as follows:
 1. "mixed1-8" uses the ezTime library to handle time and time zones, while "STEP9" does not use this library.
@@ -30,7 +35,13 @@ The specific differences are as follows:
 
 ③About the new function code (part of the code form). Use "LEDcode" to name The code file for the LED to turn on and off based on the soil moisture value; use "buzzercodePLAN1/2" to name the code file for whether to emit a beep based on the soil moisture value.
 
+<img width="673" alt="390bce1ec6276072bda181d05241060" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/a664ce1d-6940-45f2-b406-043c4c6539bf">
+<img width="663" alt="7fecaf43b4396efb9cb287660da01c8" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/181b0dba-a7e6-464a-bb22-47263068e089">
+
 ④ About the final plant monitor code (completed code form) that adds personal ideas: it is currently a file named "plant monitor-justaddLEDcod". This file only adds the LED flash alarm code based on the workshop "plant monitor". That's because the buzzer is currently used up, and the buzzer will be connected later. The code to make the buzzer run will also be added to the final code according to the plan --------let's look forward to it!
+
+<img width="671" alt="68b4cb59ad1e8604a7cd75bcce1b4c0" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/8184a32c-8d55-4145-a140-351362d29ec0">
+
 
 
 2. What has been done so far (progress)
