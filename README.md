@@ -73,7 +73,7 @@ Upload code:
 ③ About displaying plant status data to some device screens: (to do list)
 Install serial port data receiving software on your computer, such as CoolTerm (for Windows and macOS), and open the serial port data receiving software. Select the correct serial port and baud rate in the software, this information is the same as in the serial monitor. Start the serial port data reception, and then you will see the numbers sent from the Arduino in the software.
 
-5. How can others view my plant monitor data or how others can access the information being generated from your plant ?(how do we know it is your plant?)
+5. How can others view my plant monitor data or how others can access the information being generated from my plant ?(how do you know it is my plant?)
    
 Under the same LAN, the others can view it through MQTT according to the path student/CASA0014/plant/ucxxx. Each person's name is unique. You can view temperature/humidity/moisture.
 
