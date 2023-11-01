@@ -23,7 +23,7 @@ Now let's get started with a note about my library! Hope to help others have a b
 <img width="677" alt="b806590e16e2a488fba7b0359cda46f" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/c53a9acb-91ae-4903-b137-4612a2cec3f3">
 
 The specific differences are as follows:
-1. "mixed1-8" uses the ezTime library to handle time and time zones, while "STEP9" does not use this library.
+1. "mixed1-8" uses a soil moisture sensor and is connected to a DHT22 temperature and humidity sensor. It regularly measures soil moisture, temperature, and moisture, then publishes these data to a designated topic via MQTT. "STEP9" only has one DHT22 sensor connected to measure temperature and humidity. It also publishes this data via MQTT. The main difference between the two is that the first program also includes the reading and publishing of the soil moisture sensor. But both can read soil moisture.
 
 2. The code structure is slightly different. "mixed1-8" uses a function called waitForSync, while "STEP9" does not. The purpose of this function is to wait for time synchronization to ensure that the device's time is accurate. In "STEP9", time synchronization seems to be done through GB objects, but there is no explicit synchronization function.
 
