@@ -17,6 +17,26 @@ Now let's get started with a note about my library! Hope to help others have a b
 # About my plants
 When it comes to plant monitors, plants are the monitoring body of the monitor. The plant I chose in this project is Yushu, which is a common indoor landscape ornamental plant. The suitable growth temperature was 20 – 30℃ and over 38℃. When slow growth or into a short dormancy, the temperature as low as 0℃ will be frozen death. Yushu is suitable for growing in high humidity soil, the relative humidity of 60% -80% is appropriate. Since the soil temperature of plants is about equal to the room temperature, Yushu is more suitable for survival at the normal room temperature, so I chose to only monitor the soil humidity of plants. Note that in the device code setting, there are two humidity readings, one of which is the relative humidity of the air read from the DHT 22 sensor in percentage (%), indicating the proportion of water vapor in the air relative to the maximum possible content. The other is the soil moisture read from the soil moisture sensor in the original value of the simulated reading, which depends on the specific sensor and setting. For most soil moisture sensors, this value is not a percentage, but a reading based on the resistance or conductivity change of the sensor. This analog reading is typically a number between 0 and 1023 (for most Arduino boards, they have a 10-digit analog-to-digital converter). This reading reflects the relative change in resistance between nails rather than the direct humidity percentage. High reading (near 1023) usually indicate low humidity (high resistance). Low reading (close to 0) indicates high humidity (low resistance). However, this number change is non-linear, and it is difficult to accurately express it. Based on the appropriate humidity required for the growth of Yushu is high, so I set the moisture value roughly to 300.
 
+# List of main materials
+Adafruit Huzzah ESP8266 WiFi；Integrated circuit board；Raspberry Pi；Two nails and open wires；DHT22 temperature / humidity sensor；LED；Buzzer
+
+## function
+### Adafruit Huzzah ESP8266 WiFi: 
+Connect to the specified WIFI and transfer data to MQTT server; use ezTime library for time synchronization to obtain real-time date and time information for monitoring plant temperature and humidity; connect with USB interface as power supply, provide pins including ground pins. A simple Web server is set up to access the IP address and display the temperature and humidity sensors of the DHT 22 sensor. Real-time sensor data can be obtained through the Web page.
+### Circuit board: 
+Integrate the ESP board with two nails and DHT 22 sensors
+### Raspberry Pi: 
+Receiving plant monitor data as a gateway and install InfluxDB, Telegraf and Grafana on the Raspberry Pi end.
+### Two nails and open wires: 
+Wire: as a soil resistance sensor, the change of water temperature in the soil affects its resistivity. Usually, as the temperature increases, the conductivity increases, and the increase of soil humidity usually leads to the decrease of soil resistance.
+### DHT22 temperature / humidity sensor: 
+Read the soil temperature and humidity.
+### LED: 
+The LED flashes as a prompt when the moister is higher than 300.
+### Buzzer: 
+When the moister is higher than 300, buzzer plays music as a prompt.
+
+
 # The basic work part of the workshop
 ### 1.Connecting to Wifi
 ### 2.Getting the time
@@ -41,26 +61,7 @@ When it comes to plant monitors, plants are the monitoring body of the monitor. 
 Based on the basic functions of the workshop, I plan to make a plant monito that can reflect the state of the plant through light (LED) and sound. When the soil moisture is lower than a certain value (currently set to 300 for LED flashing observed), the light will flash and a sound will sound at the same time to remind people to water. At the same time, plant status data is displayed to some device screens to detect the status of plants in real time.
 
 
-# How to realize the new function of ideal plant monitor?
-## List of main materials
-Adafruit Huzzah ESP8266 WiFi；Integrated circuit board；Raspberry Pi；Two nails and open wires；DHT22 temperature / humidity sensor；LED；Buzzer
-
-## function
-### Adafruit Huzzah ESP8266 WiFi: 
-Connect to the specified WIFI and transfer data to MQTT server; use ezTime library for time synchronization to obtain real-time date and time information for monitoring plant temperature and humidity; connect with USB interface as power supply, provide pins including ground pins. A simple Web server is set up to access the IP address and display the temperature and humidity sensors of the DHT 22 sensor. Real-time sensor data can be obtained through the Web page.
-### Circuit board: 
-Integrate the ESP board with two nails and DHT 22 sensors
-### Raspberry Pi: 
-Receiving plant monitor data as a gateway and install InfluxDB, Telegraf and Grafana on the Raspberry Pi end.
-### Two nails and open wires: 
-Wire: as a soil resistance sensor, the change of water temperature in the soil affects its resistivity. Usually, as the temperature increases, the conductivity increases, and the increase of soil humidity usually leads to the decrease of soil resistance.
-### DHT22 temperature / humidity sensor: 
-Read the soil temperature and humidity.
-### LED: 
-The LED flashes as a prompt when the moister is higher than 300.
-### Buzzer: 
-When the moister is higher than 300, buzzer plays music as a prompt.
-
+# How to realize the ideal plant monitor?
 ## About the implementation principle of LED light response: 
 Write a piece of Arduino code (file "LEDcode") and add it to the original workshop code to connect the positive (long pin) of the LED to digital pin 13 of the Feather HUZZAH ESP8266 by soldering. Before connecting, make sure the power is off. The negative (short pin) of the LED is usually connected to the ground (GND) pin, make sure to connect the negative of the LED to the GND pin of the Feather HUZZAH ESP8266 for functionality.
 
