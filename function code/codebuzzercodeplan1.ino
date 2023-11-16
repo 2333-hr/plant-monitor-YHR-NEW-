@@ -1,3 +1,4 @@
+//selected
 const int soilSensorPin = A0;  // Soil moisture sensor connected to analog input pin A0
 const int buzzerPin = 9;      // Buzzer connected to digital output pin 9
 const int thresholdValue = 30;  // Set moisture threshold
