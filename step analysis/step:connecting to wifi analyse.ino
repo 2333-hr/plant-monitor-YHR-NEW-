@@ -4,7 +4,6 @@ const char* ssid     = "CE-Hub-Student";//WiFi network name
 const char* password = "casa-ce-gagarin-public-service";//WiFi network password
 const char* host = "iot.io";//The address of the host to be accessed
 
-
 void setup() {
   Serial.begin(115200);//Start serial communication
   delay(100);
