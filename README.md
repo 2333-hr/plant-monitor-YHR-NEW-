@@ -32,7 +32,7 @@ When it comes to plant monitors, plants are the monitoring body of the monitor. 
 <img width="520" alt="8cc475d8f88741dc3312a68ddc2de90" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/45549250-22b1-48b6-92e1-4981ea6ebe3e">
 
 ### 6.Sending Soil Data to MQTT
-<img width="770" alt="0c1246d1a7f2cd05ba0f4c118fd1c95" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/311df354-c38e-4137-8c8f-019a763f38fb">
+![b383f76873bc38eb14e160d163dc601](https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/72c3fb8d-4cd9-48d2-88ea-b00394d09d80)
 
 ### 7.Setting up a RPi as a gateway
 ### 8.Downloading InfuxDB/Telegraf/Grafana and implement data visualization
