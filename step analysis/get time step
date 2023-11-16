@@ -1,0 +1,52 @@
+/*
+ *  Simple test to get data and time using ezTime library.
+ *  Author: Duncan Wilson
+ *  Course: CASA0014 - 2 - Plant Monitor Workshop
+ *  Date: May 2020
+ */
+
+#include <ESP8266WiFi.h> // Include the ESP8266 WiFi library
+#include <ezTime.h>      // Include the ezTime library for handling time and timezones
+
+// WiFi credentials
+const char* ssid     = "ssid here";        // Replace with your WiFi network name
+const char* password = "your password here"; // Replace with your WiFi password
+
+Timezone GB; // Create a Timezone object for Great Britain
+
+void setup() {
+  Serial.begin(115200); // Start serial communication at 115200 baud rate
+  delay(100);           // Short delay for serial communication stabilization
+
+  // Connect to the specified WiFi network
+  Serial.println();
+  Serial.print("Connecting to ");
+  Serial.println(ssid);
+  WiFi.begin(ssid, password);
+  
+  // Wait until the WiFi connection is established
+  while (WiFi.status() != WL_CONNECTED) {
+    delay(500); // Delay for half a second
+    Serial.print("."); // Print dots to indicate connection progress
+  }
+
+  // Print WiFi connection details
+  Serial.println("");
+  Serial.println("WiFi connected");  
+  Serial.println("IP address: ");
+  Serial.println(WiFi.localIP()); // Print the IP address assigned to the ESP8266
+
+  // Synchronize time with an NTP server
+  waitForSync(); // Wait for time synchronization
+  Serial.println("UTC: " + UTC.dateTime()); // Print the current UTC date and time
+
+  // Set the timezone to London, UK
+  GB.setLocation("Europe/London"); // Set the location for timezone calculation
+  Serial.println("London time: " + GB.dateTime()); // Print the current time in London
+}
+
+void loop() {
+  delay(1000); // Delay for one second
+  // Print the current time in London every second
+  Serial.println(GB.dateTime("H:i:s")); // Print time in hours, minutes, and seconds format
+}
