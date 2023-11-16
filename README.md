@@ -18,24 +18,24 @@ Now let's get started with a note about my library! Hope to help others have a b
 When it comes to plant monitors, plants are the monitoring body of the monitor. The plant I chose in this project is Yushu, which is a common indoor landscape ornamental plant. The suitable growth temperature was 20 – 30℃ and over 38℃. When slow growth or into a short dormancy, the temperature as low as 0℃ will be frozen death. Yushu is suitable for growing in high humidity soil, the relative humidity of 60% -80% is appropriate. Since the soil temperature of plants is about equal to the room temperature, Yushu is more suitable for survival at the normal room temperature, so I chose to only monitor the soil humidity of plants. Note that in the device code setting, there are two humidity readings, one of which is the relative humidity of the air read from the DHT 22 sensor in percentage (%), indicating the proportion of water vapor in the air relative to the maximum possible content. The other is the soil moisture read from the soil moisture sensor in the original value of the simulated reading, which depends on the specific sensor and setting. For most soil moisture sensors, this value is not a percentage, but a reading based on the resistance or conductivity change of the sensor. This analog reading is typically a number between 0 and 1023 (for most Arduino boards, they have a 10-digit analog-to-digital converter). This reading reflects the relative change in resistance between nails rather than the direct humidity percentage. High reading (near 1023) usually indicate low humidity (high resistance). Low reading (close to 0) indicates high humidity (low resistance). However, this number change is non-linear, and it is difficult to accurately express it. Based on the appropriate humidity required for the growth of Yushu is high, so I set the moisture value roughly to 300.
 
 # The basic work part of the workshop
-1.Connecting to Wifi
-2.Getting the time
-3.Publish data to an MQTT server
+### 1.Connecting to Wifi
+### 2.Getting the time
+### 3.Publish data to an MQTT server
 
 ![61d9b487f91f93c23a268c017c0804d](https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/1cbfd9ae-31ce-4f2c-9b84-066509e68ade)
 
-4.Using MQTT Explorer to watch a TOPIC
+### 4.Using MQTT Explorer to watch a TOPIC
 <img width="770" alt="0c1246d1a7f2cd05ba0f4c118fd1c95" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/6b912dc9-2931-4e76-9507-b9b86ffcccb3">
 
-5.Sensing Soil + the environment
+### 5.Sensing Soil + the environment
 <img width="519" alt="86ab213cf1a012ead677a1fb7ca06a4" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/0329e33c-2651-48e7-ad12-0e0b9a3581ca">
 <img width="520" alt="8cc475d8f88741dc3312a68ddc2de90" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/45549250-22b1-48b6-92e1-4981ea6ebe3e">
 
-6.Sending Soil Data to MQTT
+### 6.Sending Soil Data to MQTT
 <img width="770" alt="0c1246d1a7f2cd05ba0f4c118fd1c95" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/311df354-c38e-4137-8c8f-019a763f38fb">
 
-7.Setting up a RPi as a gateway
-8.Downloading InfuxDB/Telegraf/Grafana and implement data visualization
+### 7.Setting up a RPi as a gateway
+### 8.Downloading InfuxDB/Telegraf/Grafana and implement data visualization
 
 # Regarding the final goal of plant monitor
 Based on the basic functions of the workshop, I plan to make a plant monito that can reflect the state of the plant through light (LED) and sound. When the soil moisture is lower than a certain value (currently set to 300 for LED flashing observed), the light will flash and a sound will sound at the same time to remind people to water. At the same time, plant status data is displayed to some device screens to detect the status of plants in real time.
