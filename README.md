@@ -114,7 +114,7 @@ The data could not be obtained through MQTT in Telegraf, and it was later discov
    
 In the process of doing workshops, you often encounter many problems when piecing together the code step by step. Most of the problems are caused by a lack of understanding of the code structure and functions as well as writing rules. Therefore, I think we should consolidate the foundation, in addition to what is taught in class. In addition to learning knowledge, you must also clearly understand the relevant basic rules, otherwise it will easily cause the problem of not knowing the specific meaning of the code. So for some steps, I conducted a line-by-line analysis, and also wanted to learn more about some basic code running rules through example analysis.
 
-Some important notes in advance:
+# Some important notes :
 I've created a library before, but because it's all uploaded in the form of folders, I feel that the presentation form is not intuitive and I want to rebuild some architecture, so I simply build a new library. 
 Here are some pictures of the proof:
 
