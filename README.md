@@ -2,7 +2,7 @@
 Now let's get started with a note about my library! Hope to help others have a better understand of the content of the files in my Github repository and its related features!
 
 # Explanation of file contents about the library
-## In this project, my code is mainly divided into three parts. 
+In this project, my code is mainly divided into three parts. 
 ### The first part is in the "step analysis" folder, which is the code analysis of each step of the work shop (it is only a functional analysis, so viewers can understand that it cannot be run alone). 
 ### The second part is the "function code" folder, which contains the added function code and can be used as a template. 
 ### The third part is the final code of the plant monitor, named "plant monitor final".
