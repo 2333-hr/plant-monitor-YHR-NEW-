@@ -9,13 +9,23 @@ Here are some pictures of the proof:
 Now let's get started with a note about my library! Hope to help others have a better understand of the content of the files in my Github repository and its related features!
 
 # Explanation of file contents about the library
-In this project, my code is mainly divided into three parts. 
+## In this project, my code is mainly divided into three parts. 
 ### The first part is in the "step analysis" folder, which is the code analysis of each step of the work shop (it is only a functional analysis, so viewers can understand that it cannot be run alone). 
 ### The second part is the "function code" folder, which contains the added function code and can be used as a template. 
 ### The third part is the final code of the plant monitor, named "plant monitor final".
 
-# About my plants? 
+# About my plants
 When it comes to plant monitors, plants are the monitoring body of the monitor. The plant I chose in this project is Yushu, which is a common indoor landscape ornamental plant. The suitable growth temperature was 20 – 30℃ and over 38℃. When slow growth or into a short dormancy, the temperature as low as 0℃ will be frozen death. Yushu is suitable for growing in high humidity soil, the relative humidity of 60% -80% is appropriate. Since the soil temperature of plants is about equal to the room temperature, Yushu is more suitable for survival at the normal room temperature, so I chose to only monitor the soil humidity of plants. Note that in the device code setting, there are two humidity readings, one of which is the relative humidity of the air read from the DHT 22 sensor in percentage (%), indicating the proportion of water vapor in the air relative to the maximum possible content. The other is the soil moisture read from the soil moisture sensor in the original value of the simulated reading, which depends on the specific sensor and setting. For most soil moisture sensors, this value is not a percentage, but a reading based on the resistance or conductivity change of the sensor. This analog reading is typically a number between 0 and 1023 (for most Arduino boards, they have a 10-digit analog-to-digital converter). This reading reflects the relative change in resistance between nails rather than the direct humidity percentage. High reading (near 1023) usually indicate low humidity (high resistance). Low reading (close to 0) indicates high humidity (low resistance). However, this number change is non-linear, and it is difficult to accurately express it. Based on the appropriate humidity required for the growth of Yushu is high, so I set the moisture value roughly to 300.
+
+# The basic work part of the workshop
+1.Connecting to Wifi
+2.Getting the time
+3.Publish data to an MQTT server
+4.Using MQTT Explorer to watch a TOPIC
+5.Sensing Soil + the environment
+6.Sending Soil Data to MQTT
+7.Setting up a RPi as a gateway
+8.Downloading InfuxDB/Telegraf/Grafana and implement data visualization
 
 # Regarding the final goal of plant monitor
 Based on the basic functions of the workshop, I plan to make a plant monito that can reflect the state of the plant through light (LED) and sound. When the soil moisture is lower than a certain value (currently set to 300 for LED flashing observed), the light will flash and a sound will sound at the same time to remind people to water. At the same time, plant status data is displayed to some device screens to detect the status of plants in real time.
