@@ -9,7 +9,10 @@ Here are some pictures of the proof:
 Now let's get started with a note about my library! Hope to help others have a better understand of the content of the files in my Github repository and its related features!
 
 # Explanation of file contents about the library
-In this project, my code is mainly divided into four parts. The first part is in the step analysis folder, which is the code analysis of each step of the work shop (it is only a functional analysis, so viewers can understand that it cannot be run alone). The second part is the function code folder, which contains the added function code and can be used as a template. The third part is the final code of the plant monitor, named "plant monitor final".
+In this project, my code is mainly divided into three parts. 
+### The first part is in the "step analysis" folder, which is the code analysis of each step of the work shop (it is only a functional analysis, so viewers can understand that it cannot be run alone). 
+### The second part is the "function code" folder, which contains the added function code and can be used as a template. 
+### The third part is the final code of the plant monitor, named "plant monitor final".
 
 # About my plants? 
 When it comes to plant monitors, plants are the monitoring body of the monitor. The plant I chose in this project is Yushu, which is a common indoor landscape ornamental plant. The suitable growth temperature was 20 – 30℃ and over 38℃. When slow growth or into a short dormancy, the temperature as low as 0℃ will be frozen death. Yushu is suitable for growing in high humidity soil, the relative humidity of 60% -80% is appropriate. Since the soil temperature of plants is about equal to the room temperature, Yushu is more suitable for survival at the normal room temperature, so I chose to only monitor the soil humidity of plants. Note that in the device code setting, there are two humidity readings, one of which is the relative humidity of the air read from the DHT 22 sensor in percentage (%), indicating the proportion of water vapor in the air relative to the maximum possible content. The other is the soil moisture read from the soil moisture sensor in the original value of the simulated reading, which depends on the specific sensor and setting. For most soil moisture sensors, this value is not a percentage, but a reading based on the resistance or conductivity change of the sensor. This analog reading is typically a number between 0 and 1023 (for most Arduino boards, they have a 10-digit analog-to-digital converter). This reading reflects the relative change in resistance between nails rather than the direct humidity percentage. High reading (near 1023) usually indicate low humidity (high resistance). Low reading (close to 0) indicates high humidity (low resistance). However, this number change is non-linear, and it is difficult to accurately express it. Based on the appropriate humidity required for the growth of Yushu is high, so I set the moisture value roughly to 300.
@@ -37,13 +40,14 @@ Read the soil temperature and humidity.
 The LED flashes as a prompt when the moister is higher than 300.
 ### Buzzer: 
 When the moister is higher than 300, buzzer plays music as a prompt.
-①About the implementation principle of LED light response: 
-Write a piece of Arduino code (file "LEDcode") and add it to the original workshop code to connect the positive (long pin) of the LED to digital pin 13 of the Feather HUZZAH ESP8266. Before connecting, make sure the power is off. The negative (short pin) of the LED is usually connected to the ground (GND) pin, make sure to connect the negative of the LED to the GND pin of the Feather HUZZAH ESP8266 for functionality.
 
-② Regarding the implementation principle of sound response: 
-Plan 1: (selected)
-Connect soil moisture sensor and buzzer to Arduino. Make sure to connect the sensor's data pin to one of the Arduino's analog input pins and the buzzer or speaker to one of the digital output pins. The sensor and buzzer need to be grounded. Use Arduino IDE to write a program to read the value of the soil moisture sensor. When the value is lower than a certain value, trigger the buzzer or speaker to make a sound. When the soil moisture is lower than thresholdValue, the buzzer will be triggered and sound. (plan1)
-Plan 2:
+## About the implementation principle of LED light response: 
+Write a piece of Arduino code (file "LEDcode") and add it to the original workshop code to connect the positive (long pin) of the LED to digital pin 13 of the Feather HUZZAH ESP8266 by soldering. Before connecting, make sure the power is off. The negative (short pin) of the LED is usually connected to the ground (GND) pin, make sure to connect the negative of the LED to the GND pin of the Feather HUZZAH ESP8266 for functionality.
+
+## Regarding the implementation principle of sound response: 
+### Plan 1: (selected)
+Use the ESP board as the power supply, directly solder the buzzer on the ESP board (pin 16 and ground pin), and control the buzzer through the Arduino code so that when the moister value is higher than 300, that is, when the soil moisture is lower than a certain value A buzzer plays music to remind people to water.
+### Plan 2:
 1.Process the received MQTT message:
 2.Process the received MQTT message in the callback function and compare the humidity data in the message with the threshold.
 If the humidity is below the threshold, trigger the buzzer, otherwise turn off the buzzer.
@@ -51,13 +55,12 @@ Upload code:
 3.Upload the written Arduino code to the Arduino Uno board.
 4 Monitor data: Monitor the data from the MQTT server and control the buzzer based on the received humidity data.
 
-③ About displaying plant status data to some device screens:
+## About displaying plant status data to some device screens:
 Install serial port data receiving software on your computer, such as CoolTerm (for Windows and macOS), and open the serial port data receiving software. Select the correct serial port and baud rate in the software, this information is the same as in the serial monitor. Start the serial port data reception, and then you will see the numbers sent from the Arduino in the software.
 
-#plant monitor display
+# plant monitor display
 
 ![df0d9c531c61df8c08bbe1e6a81c0b5](https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/cff0b419-82f2-4efa-b79b-de0e7f3a5241)
-
 
 https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/6ea0d840-fbbc-4d67-9b07-3d53422c5376
 
