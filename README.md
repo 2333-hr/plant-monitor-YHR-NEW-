@@ -8,38 +8,17 @@ Here are some pictures of the proof:
 
 Now let's get started with a note about my library! Hope to help others have a better understand of the content of the files in my Github repository and its related features!
 
-
-1. Explanation of file contents about the library
+# Explanation of file contents about the library
 In this project, my code is mainly divided into four parts. The first part is in the step analysis folder, which is the code analysis of each step of the work shop (it is only a functional analysis, so viewers can understand that it cannot be run alone). The second part is the function code folder, which contains the added function code and can be used as a template. The third part is the final code of the plant monitor, named "plant monitor final".
-   
-2. The code structure is slightly different. "mixed1-8" uses a function called waitForSync, while "STEP9" does not. The purpose of this function is to wait for time synchronization to ensure that the device's time is accurate. In "STEP9", time synchronization seems to be done through GB objects, but there is no explicit synchronization function.
 
-3. In the sendMQTT function, "mixed1-8" uses the %.1f and %.0f format strings when publishing temperature and humidity data to the MQTT topic, which can limit the number of decimal places. "STEP9" has no such restrictions.
-
-4. "mixed1-8" uses the startWifi(), startWebserver() and syncDate() functions to initialize the WiFi connection, Web server and time synchronization. "STEP9" places these initialization operations directly in the setup() function without using a separate initialization function.
-
-5.The HTML generation function SendHTML of "5.mixed1-8" contains more HTML code and displays the sampling time. The HTML in "STEP9" is relatively simple.
-
-③About the new function code (part of the code form). Use "LEDcode" to name The code file for the LED to turn on and off based on the soil moisture value; use "buzzercodePLAN1/2" to name the code file for whether to emit a beep based on the soil moisture value.
-
-<img width="673" alt="390bce1ec6276072bda181d05241060" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/a664ce1d-6940-45f2-b406-043c4c6539bf">
-<img width="663" alt="7fecaf43b4396efb9cb287660da01c8" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/181b0dba-a7e6-464a-bb22-47263068e089">
-
-④ About the final plant monitor code (completed code form) that adds personal ideas: it is currently a file named "plant monitor-justaddLEDcod". This file only adds the LED flash alarm code based on the workshop "plant monitor". That's because the buzzer is currently used up, and the buzzer will be connected later. The code to make the buzzer run will also be added to the final code according to the plan --------let's look forward to it!
-
-<img width="671" alt="68b4cb59ad1e8604a7cd75bcce1b4c0" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/8184a32c-8d55-4145-a140-351362d29ec0">
-
-
-
-2.About my plants? 
+# About my plants? 
 When it comes to plant monitors, plants are the monitoring body of the monitor. The plant I chose in this project is Yushu, which is a common indoor landscape ornamental plant. The suitable growth temperature was 20 – 30℃ and over 38℃. When slow growth or into a short dormancy, the temperature as low as 0℃ will be frozen death. Yushu is suitable for growing in high humidity soil, the relative humidity of 60% -80% is appropriate. Since the soil temperature of plants is about equal to the room temperature, Yushu is more suitable for survival at the normal room temperature, so I chose to only monitor the soil humidity of plants. Note that in the device code setting, there are two humidity readings, one of which is the relative humidity of the air read from the DHT 22 sensor in percentage (%), indicating the proportion of water vapor in the air relative to the maximum possible content. The other is the soil moisture read from the soil moisture sensor in the original value of the simulated reading, which depends on the specific sensor and setting. For most soil moisture sensors, this value is not a percentage, but a reading based on the resistance or conductivity change of the sensor. This analog reading is typically a number between 0 and 1023 (for most Arduino boards, they have a 10-digit analog-to-digital converter). This reading reflects the relative change in resistance between nails rather than the direct humidity percentage. High reading (near 1023) usually indicate low humidity (high resistance). Low reading (close to 0) indicates high humidity (low resistance). However, this number change is non-linear, and it is difficult to accurately express it. Based on the appropriate humidity required for the growth of Yushu is high, so I set the moisture value roughly to 300.
 
-
-3. Regarding the final goal of plant monitor
+# Regarding the final goal of plant monitor
 Based on the basic functions of the workshop, I plan to make a plant monito that can reflect the state of the plant through light (LED) and sound. When the soil moisture is lower than a certain value (currently set to 300 for LED flashing observed), the light will flash and a sound will sound at the same time to remind people to water. At the same time, plant status data is displayed to some device screens to detect the status of plants in real time.
 
 
-4. How to realize the new function of ideal plant monitor?
+# How to realize the new function of ideal plant monitor?
 ①About the implementation principle of LED light response: (already completed)
 Write a piece of Arduino code (file "LEDcode") and add it to the original workshop code to connect the positive (long pin) of the LED to digital pin 13 of the Feather HUZZAH ESP8266. Before connecting, make sure the power is off. The negative (short pin) of the LED is usually connected to the ground (GND) pin, make sure to connect the negative of the LED to the GND pin of the Feather HUZZAH ESP8266 for functionality.
 
@@ -62,7 +41,7 @@ Upload code:
 ③ About displaying plant status data to some device screens: (to do list)
 Install serial port data receiving software on your computer, such as CoolTerm (for Windows and macOS), and open the serial port data receiving software. Select the correct serial port and baud rate in the software, this information is the same as in the serial monitor. Start the serial port data reception, and then you will see the numbers sent from the Arduino in the software.
 
-5. How can others view my plant monitor data or how others can access the information being generated from my plant ?(how do you know it is my plant?)
+# How can others view my plant monitor data or how others can access the information being generated from my plant ?(how do you know it is my plant?)
    
 Under the same LAN, the others can view it through MQTT according to the path student/CASA0014/plant/ucxxx. Each person's name is unique. You can view temperature/humidity/moisture.
 
@@ -70,8 +49,7 @@ Under the same LAN, the others can view it through MQTT according to the path st
 
 Or others can log in to my telegraf/Grafana to view it, provided that it is under the same LAN and I enter my username and password to log in and view it.
 
-
-6. Problems encountered in the workshop
+# Problems encountered in the workshop
    
 ①Problems encountered during soldering
 
@@ -86,8 +64,7 @@ The Raspberry Pi could not connect to wifi on my own computer and the connection
 
 The data could not be obtained through MQTT in Telegraf, and it was later discovered that the API TOKEN was entered incorrectly. The Raspberry Pi configuration principle is to input a Raspberry Pi data to obtain TOKEN and an MQTT data to obtain TOKEN, but I only entered the Raspberry Pi data to obtain TOKEN. At the same time, many students had the same problem. In the final analysis, it is about the code structure. Caused by unfamiliarity with the function.
 
-
-7. Reflection
+# Reflection
    
 In the process of doing workshops, you often encounter many problems when piecing together the code step by step. Most of the problems are caused by a lack of understanding of the code structure and functions as well as writing rules. Therefore, I think we should consolidate the foundation, in addition to what is taught in class. In addition to learning knowledge, you must also clearly understand the relevant basic rules, otherwise it will easily cause the problem of not knowing the specific meaning of the code. So for some steps, I conducted a line-by-line analysis, and also wanted to learn more about some basic code running rules through example analysis.
 
