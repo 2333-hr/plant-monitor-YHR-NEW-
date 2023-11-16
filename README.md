@@ -58,13 +58,19 @@ Upload code:
 ## About displaying plant status data to some device screens:
 Install serial port data receiving software on your computer, such as CoolTerm (for Windows and macOS), and open the serial port data receiving software. Select the correct serial port and baud rate in the software, this information is the same as in the serial monitor. Start the serial port data reception, and then you will see the numbers sent from the Arduino in the software.
 
-# plant monitor display
+# Plant monitor display
 
 ![df0d9c531c61df8c08bbe1e6a81c0b5](https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/cff0b419-82f2-4efa-b79b-de0e7f3a5241)
 
 https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/6ea0d840-fbbc-4d67-9b07-3d53422c5376
 
 https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/6d377b32-f2cb-4ad2-ba0b-9e8da9840afc
+
+# Data display
+<img width="602" alt="a61cfe42b01e994dae3a321bdd16e1f" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/1cbf5ecd-64a4-47a1-8648-fd5db8285eda">
+<img width="1244" alt="44d52721e582859d96c27d09b6f021d" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/6c876e2c-2a76-4c63-8602-9dc39c35445b">
+<img width="1244" alt="69a61e385ef23344f455dddd6f8d9a3" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/34ee0693-c64f-4e4a-9ccd-fbaeb9c192fc">
+<img width="1244" alt="29b1df79a79e52ee4a75a05f346b474" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/a890b6d7-3007-41c6-bfc3-e801432d61af">
 
 
 # How can others view my plant monitor data or how others can access the information being generated from my plant ?(how do you know it is my plant?)
