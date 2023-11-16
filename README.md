@@ -19,6 +19,22 @@ Based on the basic functions of the workshop, I plan to make a plant monito that
 
 
 # How to realize the new function of ideal plant monitor?
+List of main materials
+Material types	Material name
+Board	Adafruit Huzzah ESP8266 WiFi
+Board	Integrated circuit board
+Board	Raspberry Pi
+Sensor	Two nails and open wires
+Sensor	DHT22 temperature / humidity sensor
+Miscellaneous	LED
+Miscellaneous	 Buzzer
+Adafruit Huzzah ESP8266 WiFi: Connect to the specified WIFI and transfer data to MQTT server; use ezTime library for time synchronization to obtain real-time date and time information for monitoring plant temperature and humidity; connect with USB interface as power supply, provide pins including ground pins. A simple Web server is set up to access the IP address and display the temperature and humidity sensors of the DHT 22 sensor. Real-time sensor data can be obtained through the Web page.
+Circuit board: Integrate the ESP board with two nails and DHT 22 sensors
+Raspberry Pi: Receiving plant monitor data as a gateway and install InfluxDB, Telegraf and Grafana on the Raspberry Pi end.
+Two nails and open wires: Wire: as a soil resistance sensor, the change of water temperature in the soil affects its resistivity. Usually, as the temperature increases, the conductivity increases, and the increase of soil humidity usually leads to the decrease of soil resistance.
+DHT22 temperature / humidity sensor: Read the soil temperature and humidity.
+LED: The LED flashes as a prompt when the moister is higher than 300.
+Buzzer: When the moister is higher than 300, buzzer plays music as a prompt.
 ①About the implementation principle of LED light response: (already completed)
 Write a piece of Arduino code (file "LEDcode") and add it to the original workshop code to connect the positive (long pin) of the LED to digital pin 13 of the Feather HUZZAH ESP8266. Before connecting, make sure the power is off. The negative (short pin) of the LED is usually connected to the ground (GND) pin, make sure to connect the negative of the LED to the GND pin of the Feather HUZZAH ESP8266 for functionality.
 
