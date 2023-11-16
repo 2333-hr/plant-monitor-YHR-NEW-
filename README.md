@@ -37,16 +37,11 @@ Read the soil temperature and humidity.
 The LED flashes as a prompt when the moister is higher than 300.
 ### Buzzer: 
 When the moister is higher than 300, buzzer plays music as a prompt.
-①About the implementation principle of LED light response: (already completed)
+①About the implementation principle of LED light response: 
 Write a piece of Arduino code (file "LEDcode") and add it to the original workshop code to connect the positive (long pin) of the LED to digital pin 13 of the Feather HUZZAH ESP8266. Before connecting, make sure the power is off. The negative (short pin) of the LED is usually connected to the ground (GND) pin, make sure to connect the negative of the LED to the GND pin of the Feather HUZZAH ESP8266 for functionality.
 
-![3826ee606bdcd9b2846bfa2a852880a](https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/bf042a1a-15a7-47f1-8a6d-b74732117657)
-
-![a1ce92f9261f45df78356a3e0f63511](https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/7df9203d-0ad5-47fd-b57b-fdbc34100d24)
-
-
-② Regarding the implementation principle of sound response: (to do list)
-Plan 1: 
+② Regarding the implementation principle of sound response: 
+Plan 1: (selected)
 Connect soil moisture sensor and buzzer to Arduino. Make sure to connect the sensor's data pin to one of the Arduino's analog input pins and the buzzer or speaker to one of the digital output pins. The sensor and buzzer need to be grounded. Use Arduino IDE to write a program to read the value of the soil moisture sensor. When the value is lower than a certain value, trigger the buzzer or speaker to make a sound. When the soil moisture is lower than thresholdValue, the buzzer will be triggered and sound. (plan1)
 Plan 2:
 1.Process the received MQTT message:
@@ -56,8 +51,18 @@ Upload code:
 3.Upload the written Arduino code to the Arduino Uno board.
 4 Monitor data: Monitor the data from the MQTT server and control the buzzer based on the received humidity data.
 
-③ About displaying plant status data to some device screens: (to do list)
+③ About displaying plant status data to some device screens:
 Install serial port data receiving software on your computer, such as CoolTerm (for Windows and macOS), and open the serial port data receiving software. Select the correct serial port and baud rate in the software, this information is the same as in the serial monitor. Start the serial port data reception, and then you will see the numbers sent from the Arduino in the software.
+
+#plant monitor display
+
+![df0d9c531c61df8c08bbe1e6a81c0b5](https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/cff0b419-82f2-4efa-b79b-de0e7f3a5241)
+
+
+https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/6ea0d840-fbbc-4d67-9b07-3d53422c5376
+
+https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/6d377b32-f2cb-4ad2-ba0b-9e8da9840afc
+
 
 # How can others view my plant monitor data or how others can access the information being generated from my plant ?(how do you know it is my plant?)
    
