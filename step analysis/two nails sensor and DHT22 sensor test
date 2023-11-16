@@ -1,0 +1,52 @@
+#include <DHT.h>
+#include <DHT_U.h>
+
+// Define the type of the DHT sensor
+#define DHTTYPE DHT22   // DHT 22 (AM2302), AM2321
+
+// DHT Sensor setup
+uint8_t DHTPin = 12;        // DHT sensor connected to pin 12 of the Huzzah
+DHT dht(DHTPin, DHTTYPE);   // Initialize DHT sensor.
+
+// Soil moisture sensor setup
+uint8_t soilPin = 0;        // One nail connected to +5V, the other to this analog pin
+int moisture_val;           // Variable to store moisture value
+int sensorVCC = 13;         // Power supply pin for the soil sensor
+int counter = 0;            // Counter for managing sensor power timing
+
+void setup() {
+  Serial.begin(115200); // Open serial communication
+  delay(100);
+
+  // Start the DHT sensor
+  pinMode(DHTPin, INPUT);
+  dht.begin();
+
+  // Set up the soil moisture sensor
+  pinMode(sensorVCC, OUTPUT);
+  digitalWrite(sensorVCC, LOW);
+}
+
+void loop() {
+  // Read and print temperature and humidity from the DHT sensor
+  Serial.print("Temp: ");
+  Serial.println(dht.readTemperature()); // Read and print temperature
+  Serial.print("Hum: ");
+  Serial.println(dht.readHumidity()); // Read and print humidity
+
+  // Soil moisture sensor reading and power management
+  counter++;
+  if(counter > 6){ // Change this value to set "not powered" time. Higher number, bigger gap
+    digitalWrite(sensorVCC, HIGH); // Power the sensor
+    delay(1000); // Wait for stabilization
+    moisture_val = analogRead(soilPin); // Read moisture value
+    digitalWrite(sensorVCC, LOW); // Turn off sensor power
+    counter = 0; // Reset counter
+  }
+
+  // Print soil moisture value
+  Serial.print("Sensor = ");                       
+  Serial.println(moisture_val);
+
+  delay(1000); // Wait for a second before next loop iteration
+}
