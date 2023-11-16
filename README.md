@@ -1,6 +1,4 @@
 # plant-monitor-YHR-NEW-
-connected environment
-
 Some important notes in advance:
 I've created a library before, but because it's all uploaded in the form of folders, I feel that the presentation form is not intuitive and I want to rebuild some architecture, so I simply build a new library. 
 Here are some pictures of the proof:
@@ -12,19 +10,8 @@ Now let's get started with a note about my library! Hope to help others have a b
 
 
 1. Explanation of file contents about the library
+In this project, my code is mainly divided into four parts. The first part is in the step analysis folder, which is the code analysis of each step of the work shop (it is only a functional analysis, so viewers can understand that it cannot be run alone). The second part is the function code folder, which contains the added function code and can be used as a template. The third part is the final code of the plant monitor, named "plant monitor final".
    
-① First, the code of some steps of the plant monitor (I've selected steps that I think are somewhat difficult) were analyzed in detail, and the file was named "step: xxxanalyse". (Two are currently analyzed, and if there is a need for improvement, I will continue to analyze and upload the files).
-
-<img width="682" alt="54e856244d962442a25faa016c3e5a5" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/1aa96391-a9f9-4619-8ec7-0200ba39cd80">
-
-② Regarding the final code of the workshop "plant monitor" step 1-9 function, "STEP9" is the integration code provided by the teacher in the ninth step. I have changed or added some comments. "mixed1-8" is my own mixed steps. The merged codes in 1-8 have similar functions. They are both used for the development of the ESP8266 board, connecting to the WiFi network, reading the temperature and humidity data of the DHT22 sensor, transmitting the data through MQTT and setting up a Web server. But there are also subtle differences. Later, I may need to select and integrate them into a final version of the optimal document.
-
-<img width="673" alt="bfa2ae60fca5c7c323beac01ca8b7ea" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/c6f19db6-6337-4c92-bf6a-72d01f493eb2">
-<img width="677" alt="b806590e16e2a488fba7b0359cda46f" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/c53a9acb-91ae-4903-b137-4612a2cec3f3">
-
-The specific differences are as follows:
-1. "mixed1-8" uses a soil moisture sensor and is connected to a DHT22 temperature and humidity sensor. It regularly measures soil moisture, temperature, and moisture, then publishes these data to a designated topic via MQTT. "STEP9" only has one DHT22 sensor connected to measure temperature and humidity. It also publishes this data via MQTT. The main difference between the two is that the first program also includes the reading and publishing of the soil moisture sensor. But both can read soil moisture.
-
 2. The code structure is slightly different. "mixed1-8" uses a function called waitForSync, while "STEP9" does not. The purpose of this function is to wait for time synchronization to ensure that the device's time is accurate. In "STEP9", time synchronization seems to be done through GB objects, but there is no explicit synchronization function.
 
 3. In the sendMQTT function, "mixed1-8" uses the %.1f and %.0f format strings when publishing temperature and humidity data to the MQTT topic, which can limit the number of decimal places. "STEP9" has no such restrictions.
@@ -44,17 +31,8 @@ The specific differences are as follows:
 
 
 
-2. What has been done so far (progress)
-Connect to wifi using Feather HUZZAH ESP8266;
-Get time from NTP server on internet using ezTime library;
-Publish data to MQTT server;
-Watch TOPIC using MQTT Explorer;
-Learn to solder and solder the circuit board, Feather HUZZAH ESP8266 board, resistor, and DHT22 temperature/humidity sensor together, and then use nails and wires to connect the sensor and the nails so that the sensor can detect temperature and humidity through the nails;
-Connect wifi and MQTT to send soil data to MQTT;
-Set the Raspberry Pi as the gateway, burn the SD card to the Raspberry Pi, install InfluxDB, Telegraf and Grafana to achieve data visualization.
-Raspberry Pi related screenshots:
-<img width="1244" alt="ad033bf2725da3a2bf83e36ff5fe724" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/00de55cc-8bdc-47df-ba32-328e964036ad">
-<img width="1244" alt="320510e04f1bcd33af70a472b6268a7" src="https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/5b57b615-8a0c-48f9-9fbd-51e2ddc02950">
+2.About my plants? 
+When it comes to plant monitors, plants are the monitoring body of the monitor. The plant I chose in this project is Yushu, which is a common indoor landscape ornamental plant. The suitable growth temperature was 20 – 30℃ and over 38℃. When slow growth or into a short dormancy, the temperature as low as 0℃ will be frozen death. Yushu is suitable for growing in high humidity soil, the relative humidity of 60% -80% is appropriate. Since the soil temperature of plants is about equal to the room temperature, Yushu is more suitable for survival at the normal room temperature, so I chose to only monitor the soil humidity of plants. Note that in the device code setting, there are two humidity readings, one of which is the relative humidity of the air read from the DHT 22 sensor in percentage (%), indicating the proportion of water vapor in the air relative to the maximum possible content. The other is the soil moisture read from the soil moisture sensor in the original value of the simulated reading, which depends on the specific sensor and setting. For most soil moisture sensors, this value is not a percentage, but a reading based on the resistance or conductivity change of the sensor. This analog reading is typically a number between 0 and 1023 (for most Arduino boards, they have a 10-digit analog-to-digital converter). This reading reflects the relative change in resistance between nails rather than the direct humidity percentage. High reading (near 1023) usually indicate low humidity (high resistance). Low reading (close to 0) indicates high humidity (low resistance). However, this number change is non-linear, and it is difficult to accurately express it. Based on the appropriate humidity required for the growth of Yushu is high, so I set the moisture value roughly to 300.
 
 
 3. Regarding the final goal of plant monitor
