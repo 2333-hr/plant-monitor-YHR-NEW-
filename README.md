@@ -21,6 +21,7 @@ When it comes to plant monitors, plants are the monitoring body of the monitor. 
 1.Connecting to Wifi
 2.Getting the time
 3.Publish data to an MQTT server
+
 ![61d9b487f91f93c23a268c017c0804d](https://github.com/2333-hr/plant-monitor-YHR-NEW-/assets/146243657/1cbfd9ae-31ce-4f2c-9b84-066509e68ade)
 
 4.Using MQTT Explorer to watch a TOPIC
